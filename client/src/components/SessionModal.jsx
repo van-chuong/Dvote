@@ -25,6 +25,7 @@ const createSession = async (event)=>
         message:"Session Request created Successfully"
       })
       console.log(registrationDeadline)
+      console.log(votingDeadline)
 }
 
 return (
