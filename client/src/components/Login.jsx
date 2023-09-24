@@ -9,8 +9,18 @@ const [setInfo,setUserName,setUri] = onChange;
 const register = async (event)=>
 {
   event.preventDefault(); 
-  await instance.methods.register(event.target.uri.value,event.target.info.value,event.target.username.value).send({from:myAddr});
-//listen to participant registered event and pass its value  so that homscreen will rerender instead of reloading
+  const uri = event.target.uri.value;
+  const info = event.target.info.value;
+  const username = event.target.username.value;
+
+  if (!uri || !info || !username) {
+    // Hiển thị thông báo lỗi
+    alert("Please fill in all information to be able to register.");
+    return; // Dừng việc gửi yêu cầu đăng ký nếu có trường không hợp lệ.
+  }else{
+    await instance.methods.register(event.target.uri.value,event.target.info.value,event.target.username.value).send({from:myAddr});
+    //listen to participant registered event and pass its value  so that homscreen will rerender instead of reloading
+    }
 }
 
 useEffect(()=>
