@@ -9,6 +9,11 @@ module.exports = {
 			port: 7545,
 			network_id: "*",
 		},
+		homewifi: {
+			host: "192.168.1.6",
+			port: 7545,
+			network_id: "*",
+		},
 	},
 	compilers: {
 		solc: {
